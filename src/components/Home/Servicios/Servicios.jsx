@@ -1,4 +1,5 @@
 import React from 'react'
+import { FadeInSection } from '../../Efectos/FadeInSection/FadeInSection'
 import CardServicio from './CardServicio'
 import { DataServicios } from './DataServicios'
 
@@ -16,14 +17,16 @@ export default function Servicios() {
         </div>
         <div className="container mx-auto">
         {DataServicios.map((servicio, index) => (
-            <CardServicio
-                key={index}
-                title={servicio.title}
-                desc={servicio.desc}
-                tiempo={servicio.tiempo}
-                imagenes={servicio.imagenes}
-                position={servicio.position}
+            <FadeInSection>
+                <CardServicio
+                    key={index}
+                    title={servicio.title}
+                    desc={servicio.desc}
+                    tiempo={servicio.tiempo}
+                    imagenes={servicio.imagenes}
+                    position={servicio.position}
                 />
+            </FadeInSection>
             ))}
         </div>
     </div>

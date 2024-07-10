@@ -4,7 +4,7 @@ import ImgPersonaPC from "../../../assets/PersonImgPC.png"
 
 export default function Inicio() {
   return (
-    <div className='bg-gradient-to-r overflow-hidden w-full h-screen from-[#EEB4CB] via-[#F6E2EA] via-[#FDF4F8] via-[#F6E2EA] to-[#EEB4CB]'>
+    <div className='bg-gradient-to-r overflow-hidden w-full h-fit from-[#EEB4CB] via-[#F6E2EA] via-[#FDF4F8] via-[#F6E2EA] to-[#EEB4CB]'>
       <div className='flex flex-col md:flex-row justify-center md:px-0 px-4 md:pt-20'>
         <div className='md:w-3/12 md:min-w-96 w-full text-center mt-20'>
           <h1 className=' font-serif font-bold text-xl md:text-4xl mb-1 md:mb-4'>Belleza, Cosmetica</h1>
@@ -17,7 +17,7 @@ export default function Inicio() {
             <p>🕒 Tiempo de respuesta promedio:</p>
             <p>muy rápido</p>
           </div>
-          <a href="https://api.whatsapp.com/send?phone=2996214947" className='flex font-thin md:mx-0 mx-auto mt-10 md:text-base text-sm bg-white w-fit md:hover:font-normal space-x-3 py-2 px-4 transition-all ease-in-out shadow-md md:hover:shadow-md'>
+          <a href="https://api.whatsapp.com/send?phone=2996214947" className='flex font-thin md:mx-0 mx-auto mt-10 md:text-base text-sm bg-white w-fit space-x-3 py-2 px-4 transition-all duration-500 ease-in-out translate-y-0 hover:-translate-y-1 shadow-md'>
             <p className='text-[#564757]'>Agendar Turno</p>
             <img className='w-3 h-4 my-auto' src={flecha} alt="flechaLink" />
           </a>
