@@ -30,7 +30,7 @@ export const Info = () => {
         <div className='md:absolute bottom-0 -left-32'>
             <img 
             src={persona} 
-            className='md:max-w-72 w-44 md:mx-0 mx-auto'
+            className='md:max-w-72 max-w-44 md:mx-0 mx-auto'
             alt="Diana Trejo" 
             />
         </div>
