@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { Nav } from './components/Nav/Nav'
+import { Footer } from './components/Footer/Footer'
 import { Home } from './components/Home/Home'
 import { AboutUs } from "./components/AboutUs"
 import { Cursos } from "./components/Cursos"
@@ -20,7 +21,7 @@ function App() {
         <Route path='/Voucher' element={ <Voucher/> }></Route>
         <Route path='/Blog' element={ <Blog/> }></Route>
       </Routes>
-     
+      <Footer></Footer>
     </>
   )
 }

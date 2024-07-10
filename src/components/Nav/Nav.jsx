@@ -30,8 +30,8 @@ export const Nav = () => {
             <Link className='md:w-2/12 my-auto' to={'/'}><img src={logo} alt="logo" /></Link>
             
             {/* Desktop Menu */}
-            <div className='hidden font-sans p-3 align-middle md:flex w-10/12 justify-end'>
-                <ul className='flex w-auto m-auto space-x-12 '>
+            <div className='hidden font-sans py-3 align-middle md:flex w-10/12 justify-end'>
+                <ul className='flex w-4/5 m-auto justify-around'>
                     <li>
                         <Link to={'/'}>Inicio</Link>
                     </li>
@@ -48,13 +48,13 @@ export const Nav = () => {
                         <Link to={'Blog'}>Blog</Link>
                     </li>
                 </ul>
-                <div className='w-auto flex space-x-16'>
+                <div className='w-2/5 flex justify-around'>
                     <a href="https://www.instagram.com/veronica0cruz?igsh=MWtqdzk2OXhydTJkMQ==" className='flex space-x-2'>
                         <img src={insta} className='w-4 m-auto h-4' alt="iconInstagram" />
-                        <p className='m-auto'>Instagram</p>
+                        <p className='m-auto text-black'>Instagram</p>
                     </a>
-                    <a href="https://api.whatsapp.com/send?phone=2996214947" className='bg-white py-2 px-4'>
-                        <p className='text-indigo-950'>Agendar Turno</p>
+                    <a href="https://api.whatsapp.com/send?phone=2996214947" className='bg-white w-36 py-2 px-4'>
+                        <p className='text-[#564757] text-sm'>Agendar Turno</p>
                     </a>
                 </div>
             </div>
@@ -91,7 +91,7 @@ export const Nav = () => {
                         <p className='m-auto'>Instagram</p>
                     </a>
                     <a href="https://api.whatsapp.com/send?phone=2996214947" className='bg-gradient-to-r from-[#EEB4CB] via-[#FDF4F8] to-[#EEB4CB] py-2 px-4 w-fit mx-auto'>
-                        <p className='text-indigo-950'>Agendar Turno</p>
+                        <p className='text-[#564757]'>Agendar Turno</p>
                     </a>
                 </div>
             </div>

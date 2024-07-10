@@ -9,7 +9,7 @@ export default function Inicio() {
         <div className='md:w-3/12 md:min-w-96 w-full text-center mt-20'>
           <h1 className=' font-serif font-bold text-xl md:text-4xl mb-1 md:mb-4'>Belleza, Cosmetica</h1>
           <h1 className=' font-serif font-bold text-xl md:text-4xl mb-5 md:mb-7'>y cuidado personal</h1>
-          <p className='md:text-base text-xs'>
+          <p className='md:text-base text-black text-xs'>
             Estamos para <strong>mimarte, escucharte y trabajar con excelencia</strong> , dando lo mejor de nuestra parte. Porque trabajar es una bendición y al elegirnos nos bendecís...
             Lo hacemos felices porque nuestro trabajo nos apasiona.
           </p>
@@ -18,7 +18,7 @@ export default function Inicio() {
             <p>muy rápido</p>
           </div>
           <a href="https://api.whatsapp.com/send?phone=2996214947" className='flex font-thin md:mx-0 mx-auto mt-10 md:text-base text-sm bg-white w-fit md:hover:font-normal space-x-3 py-2 px-4 transition-all ease-in-out shadow-md md:hover:shadow-md'>
-            <p className='text-indigo-950'>Agendar Turno</p>
+            <p className='text-[#564757]'>Agendar Turno</p>
             <img className='w-3 h-4 my-auto' src={flecha} alt="flechaLink" />
           </a>
         </div>

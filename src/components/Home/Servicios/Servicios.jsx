@@ -6,7 +6,7 @@ export default function Servicios() {
   return (
     <div className='md:p-0 px-5'>
         <div className='w-fil m-auto text-center mt-10'>
-            <p className='font-serif text-xs md:text-md'>conoce mis</p>
+            <p className='font-serif text-xs md:text-md text-black'>conoce mis</p>
             <h1 className='font-serif text-3xl md:text-5xl'>Servicios</h1>
             <p className='max-w-96 mx-auto mt-6 text-xs md:text-base'>
                 Son la fusión entre lo natural y el arte para realzar la belleza auténtica y
