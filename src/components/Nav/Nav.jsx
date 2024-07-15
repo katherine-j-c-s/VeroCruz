@@ -21,7 +21,7 @@ export const Nav = () => {
     const navItems = [
         { name: 'INICIO', href: '/' },
         { name: 'CURSOS', href: '/Cursos' },
-        { name: 'NOSOTROS', href: '/About' },
+        { name: 'NOSOTROS', href: '/Nosotros' },
         { name: 'VOUCHER', href: '/Voucher' },
         { name: 'BLOG', href: '/Blog' },
     ];
@@ -76,7 +76,7 @@ export const Nav = () => {
                         <Link to={'Voucher'}>Voucher</Link>
                     </li>
                     <li>
-                        <Link to={'About'}>Nosotros</Link>
+                        <Link to={'Nosotros'}>Nosotros</Link>
                     </li>
                     <li>
                         <Link to={'Blog'}>Blog</Link>
