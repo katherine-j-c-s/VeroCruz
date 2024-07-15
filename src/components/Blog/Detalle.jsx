@@ -51,64 +51,12 @@ export const Detalle = () => {
         ))}
       </Slider>
       <div className='px-4'>
-        <h1 className="text-3xl font-serif my-4">{title}</h1>
+        <h1 className="md:text-3xl text-xl font-serif my-4">{title}</h1>
         <div className="flex space-x-2 mb-2">
           <Link to="/blog" className="text-black font-sans font-semibold text-xs">Articulo</Link>
           <Link to="/Nosotros" className="text-black font-sans font-semibold text-xs">Vero Cruz</Link>
         </div>
-        <p className="mb-6">{Detalle.desc}</p>
-
-        {/* {Detalle.temas.map((tema, index) => (
-          <div key={index} className="mb-4">
-            <div 
-              className="flex justify-between items-center cursor-pointer" 
-              onClick={() => toggleAccordion(index)}
-            >
-              <h2 className="text-xl font-semibold">{tema.title}</h2>
-              <span className={`transform transition-transform duration-300 ${isOpen[index] ? 'rotate-180' : ''}`}>
-                ▼
-              </span>
-            </div>
-            {!isOpen[index] && <hr className="my-2"/>}
-            {isOpen[index] && (
-              <div className="mt-2 transition-all duration-300 ease-in-out">
-                {tema.desc && tema.desc.map((parrafo, i) => (
-                  <p key={i} className="mb-2">{parrafo}</p>
-                ))}
-                {tema.listado && (
-                  <ul className="list-disc text-[#7A7A7A] pl-5 mb-2">
-                    {tema.listado.map((item, i) => (
-                      <li key={i}>{item}</li>
-                    ))}
-                  </ul>
-                )}
-                {tema.pasos && (
-                  <>
-                    <h3 className="font-semibold text-[#7A7A7A] mt-2 mb-1">Pasos:</h3>
-                    <ol className="list-decimal text-[#7A7A7A] pl-5 mb-2">
-                      {tema.pasos.map((paso, i) => (
-                        <li key={i}>{paso}</li>
-                      ))}
-                    </ol>
-                  </>
-                )}
-                {tema.imagenes && (
-                  <>
-                    <div className='flex w-full mt-4 justify-around flex-wrap'>
-                    {tema.imagenes.map((imagen, i) => (
-                      <div key={i} className="mb-2">
-                        <img src={imagen.url} alt={imagen.title} className='max-w-44 max-h-44'/>
-                        {imagen.title && <p className="font-semibold">{imagen.title}</p>}
-                        {imagen.desc && <p className='max-w-44 text-xs'>{imagen.desc}</p>}
-                      </div>
-                    ))}
-                    </div>
-                  </>
-                )}
-              </div>
-            )}
-          </div>
-        ))} */}
+        <p className="mb-6 md:text-base text-xs">{Detalle.desc}</p>
 
         {Detalle.temas.map((tema, index) => (
           <AccordionItem
@@ -121,8 +69,8 @@ export const Detalle = () => {
 
         <div className="my-16 md:flex md:justify-between">
           <div className="md:w-1/2">
-            <h2 className="text-5xl font-serif font-bold mb-7">Agendá un turno</h2>
-            <p className="mb-8">
+            <h2 className="md:text-5xl text-2xl font-serif font-bold mb-7">Agendá un turno</h2>
+            <p className="mb-8 text-xs md:text-base">
               Conocé esta nueva tendencia en {tituloServicio} agendando un turno en By Vero Cruz. 
               Estamos ubicados en San Martin 195, 4° piso, dpto n°1 Neuquén capital
             </p>

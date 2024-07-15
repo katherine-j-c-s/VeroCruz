@@ -8,7 +8,7 @@ export const AccordionItem = ({ tema, isOpen, toggleAccordion }) => {
         className="flex justify-between items-center cursor-pointer" 
         onClick={toggleAccordion}
       >
-        <h2 className="text-xl font-semibold">{tema.title}</h2>
+        <h2 className="md:text-xl font-serif md:font-semibold">{tema.title}</h2>
         <motion.span
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
@@ -24,7 +24,7 @@ export const AccordionItem = ({ tema, isOpen, toggleAccordion }) => {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="mt-2 transition-all duration-300 ease-in-out">
+            <div className="mt-2 md:text-base text-xs transition-all duration-300 ease-in-out">
               {tema.desc && tema.desc.map((parrafo, i) => (
                 <p key={i} className="mb-2">{parrafo}</p>
               ))}
