@@ -13,7 +13,7 @@ export const NavItem = ({ href, isActive, children }) => {
         {children}
       </Link>
       <div
-        className={`absolute bottom-0 left-0 h-0.5 bg-pink-600 transition-all duration-300 ${
+        className={`absolute bottom-0 top-10 left-0 h-0.5 bg-pink-600 transition-all duration-300 ${
           isActive ? 'w-full' : 'w-0 group-hover:w-full'
         }`}
       />

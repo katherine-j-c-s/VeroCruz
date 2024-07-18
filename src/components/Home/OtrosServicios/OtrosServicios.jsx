@@ -22,7 +22,7 @@ export default function OtrosServicios() {
         }
     ];
   return (
-    <div className='relative flex md:flex-row flex-col md:justify-around'>
+    <div className='relative flex md:flex-wrap md:flex-row flex-col md:justify-around'>
         <img className='absolute right-0 md:w-fit w-full h-full' src={backgroundIMG} alt="bg" />
         <div className='md:w-fit w-full text-left md:mt-0 mt-10 md:text-left z-10'>
             <div className='flex md:flex-col space-x-2 justify-center md:space-x-0 flex-row'>

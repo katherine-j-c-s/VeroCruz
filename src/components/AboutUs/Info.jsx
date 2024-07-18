@@ -44,8 +44,8 @@ export const Info = () => {
             todas mis técnicas y conocimientos.
             </p>
             <div className='flex justify-around md:mx-auto mt-5 max-w-32'>
-            <img src={firma} alt="Firma" />
-            <a 
+              <img src={firma} alt="Firma" />
+              <a 
                 href="https://www.instagram.com/veronica0cruz?igsh=MWtqdzk2OXhydTJkMQ==" 
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -58,7 +58,7 @@ export const Info = () => {
                     className="w-fit h-fit" 
                 />
                 </div>
-            </a>
+              </a>
             </div>
         </div>
         <div className='md:ml-20'>

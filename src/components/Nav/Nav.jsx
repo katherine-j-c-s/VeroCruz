@@ -1,5 +1,6 @@
 import React, { useState , useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { SlideDown } from '../Efectos/SlideDown/SlideDown'
 import { NavItem } from './NavItem'
 import logo from "../../assets/Logo.png"
 import insta from "../../assets/instagramIcon.png"
@@ -7,20 +8,22 @@ import insta from "../../assets/instagramIcon.png"
 export const Nav = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [activeItem, setActiveItem] = useState('/');
+    const [showCursosSubMenu, setShowCursosSubMenu] = useState(false);
 
-    const location = useLocation()
+    const location = useLocation();
 
     const toggleMenu = () => setIsOpen(!isOpen);
+    const toggleCursosSubMenu = () => setShowCursosSubMenu(!showCursosSubMenu);
 
-    // Close menu when route changes
     useEffect(() => {
         setIsOpen(false);
+        setShowCursosSubMenu(false);
         setActiveItem(location.pathname);
     }, [location]);
 
     const navItems = [
         { name: 'INICIO', href: '/' },
-        { name: 'CURSOS', href: '/Cursos' },
+        { name: 'CURSOS', href: '/Cursos', subMenu: true },
         { name: 'NOSOTROS', href: '/Nosotros' },
         { name: 'VOUCHER', href: '/Voucher' },
         { name: 'BLOG', href: '/Blog' },
@@ -36,13 +39,40 @@ export const Nav = () => {
             <div className='hidden font-sans py-3 align-middle md:flex w-10/12 justify-end'>
                 <div className="flex justify-center space-x-4">
                     {navItems.map((item) => (
-                    <NavItem
-                        key={item.name}
-                        href={item.href}
-                        isActive={activeItem === item.href}
-                    >
-                        {item.name}
-                    </NavItem>
+                        <div key={item.name} className="relative">
+                            {item.subMenu ? (
+                                <div className="relative">
+                                    <button 
+                                        onClick={toggleCursosSubMenu}
+                                        className={`px-4 text-xs font-medium transition-colors duration-200 ${
+                                            activeItem.startsWith(item.href) ? 'text-pink-600' : 'text-gray-700 hover:text-pink-600'
+                                        }`}
+                                    >
+                                        {item.name}
+                                    </button>
+                                    <div
+                                        className={`absolute bottom-0 left-0 h-0.5 bg-pink-600 transition-all duration-300 ${
+                                            activeItem.startsWith(item.href) ? 'w-full' : 'w-0 group-hover:w-full'
+                                        }`}
+                                    />
+                                    <SlideDown isOpen={showCursosSubMenu}>
+                                        <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                                            <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                                <Link to="/curso/0" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">DISEÑO Y PERFILADO DE CEJAS</Link>
+                                                <Link to="/curso/1" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">EXTENSIÓN DE PESTAÑAS</Link>
+                                            </div>
+                                        </div>
+                                    </SlideDown>
+                                </div>
+                            ) : (
+                                <NavItem
+                                    href={item.href}
+                                    isActive={activeItem === item.href}
+                                >
+                                    {item.name}
+                                </NavItem>
+                            )}
+                        </div>
                     ))}
                 </div>
                 <div className='w-2/5 flex justify-around'>
@@ -65,20 +95,30 @@ export const Nav = () => {
 
             {/* Mobile Menu */}
             <div className={`md:hidden ${isOpen ? 'max-h-screen ' : ' max-h-0'} w-screen h-screen flex justify-around flex-col mt-8 bg-white absolute left-0 overflow-hidden transition-all duration-300 ease-in-out`}>
-                <ul className='flex flex-col w-fit mx-auto space-y-8 '>
-                    <li>
+                <ul className='flex flex-col w-full mx-auto space-y-8 '>
+                    <li className='mx-auto'>
                         <Link to={'/'}>Inicio</Link>
                     </li>
-                    <li>
-                        <Link to={'Cursos'}>Cursos</Link>
+                    <li className='mx-auto text-center'>
+                        <button 
+                            onClick={toggleCursosSubMenu}
+                        >
+                            Cursos
+                        </button>
+                        <SlideDown isOpen={showCursosSubMenu}>
+                            <ul className="ml-4 mt-2 space-y-2">
+                                <li><Link to="/curso/0" className="block px-4 py-2 text-sm text-gray-700 hover:text-pink-600">DISEÑO Y PERFILADO DE CEJAS</Link></li>
+                                <li><Link to="/curso/1" className="block px-4 py-2 text-sm text-gray-700 hover:text-pink-600">EXTENSIÓN DE PESTAÑAS</Link></li>
+                            </ul>
+                        </SlideDown>
                     </li>
-                    <li>
+                    <li className='mx-auto'>
                         <Link to={'Voucher'}>Voucher</Link>
                     </li>
-                    <li>
+                    <li className='mx-auto'>
                         <Link to={'Nosotros'}>Nosotros</Link>
                     </li>
-                    <li>
+                    <li className='mx-auto'>
                         <Link to={'Blog'}>Blog</Link>
                     </li>
                 </ul>
