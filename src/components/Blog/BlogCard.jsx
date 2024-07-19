@@ -28,7 +28,7 @@ export const BlogCard = ({ id, title, descResumida, urlImg, Detalle }) => {
           to={`/DetalleBlog/${id}?title=${encodeURIComponent(title)}&detalle=${encodeURIComponent(JSON.stringify(Detalle))}`}
           className="md:text-sm text-xs font-mono"
         >
-          Leer más -->
+          Leer más
         </Link>
       </div>
     </div>

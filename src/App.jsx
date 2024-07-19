@@ -7,7 +7,7 @@ import { AboutUs } from './components/AboutUs/AboutUs'
 import Curso from './components/Cursos/Curso'
 import Blog from './components/Blog/Blog'
 import { Detalle } from './components/Blog/Detalle'
-import { Voucher } from './components/Voucher'
+import { Voucher } from './components/Voucher/Voucher'
 import './App.css'
 
 function App() {
