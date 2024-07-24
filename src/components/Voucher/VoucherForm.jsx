@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
 import { InfoServicios } from './InfoServicios';
 import { FloatingElement } from '../Efectos/FloatingElement/FloatingElement';
+
 import flecha from "../../assets/link.png"
 import giftLeftTop from "../../assets/Voucher/gift11.png";
 import giftLeftButtom from "../../assets/Voucher/gift12.png";
@@ -9,6 +13,7 @@ import giftRightTop from "../../assets/Voucher/gift21.png";
 import giftRightButtom from "../../assets/Voucher/gift22.png";
 
 export default function VoucherForm() {
+    const [preferenceId,setPreferenceId] = useState(null)
     const [formData, setFormData] = useState({
         para: '',
         de: '',
@@ -31,7 +36,6 @@ export default function VoucherForm() {
           setMonto(selectedService ? selectedService.costo : 0);
         }
     };
-
     const validate = () => {
         let tempErrors = {};
         tempErrors.para = formData.para ? "" : "Este campo es requerido";
@@ -42,17 +46,37 @@ export default function VoucherForm() {
         return Object.values(tempErrors).every(x => x === "");
     };
 
+    initMercadoPago('TEST-5024121c-fb58-4af1-a124-06216c3155d9',{
+        locale: "es-AR"
+    });
+
+    const createPreference = async () => {
+        try {
+            const response = await axios.post("http://localhost:3000/create_preference",{
+                title: formData.servicio,
+                quantity: 1,
+                price: monto
+            });
+
+            const { id } = response.data;
+            return id;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const handleBuy = async () => {
+        const id = await createPreference();
+        if (id) {
+            setPreferenceId(id)
+        }
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (validate()) {
-          // Aquí iría la lógica para procesar el pago y enviar emails
-          console.log("Formulario válido, procesando...");
-          // Simular redirección a MercadoPago
-          // await procesarPago();
-          // Simular envío de emails
-          // await enviarEmails();
-          // Redirigir y mostrar notificación
-          navigate('/Voucher', { state: { success: true } });
+            handleBuy()
+            navigate('/Voucher', { state: { success: true } });
         }
     };
 
@@ -135,15 +159,32 @@ export default function VoucherForm() {
                                 />
                                 {errors.email && <p className="mt-2 md:text-sm text-xs text-red-600">{errors.email}</p>}
                             </div>
-                            <FloatingElement>
-                                <button
-                                    type="submit"
-                                    className='flex font-monos md:text-base text-sm bg-gradient-to-r from-[#EEB4CB] via-[#FDF4F8] to-[#EEB4CB] w-fit px-5 shadow-md py-3 space-x-3 my-10'
-                                >
-                                    <p className='text-[#564757] uppercase'>pagar</p>
-                                    <img className='w-3 h-4 my-auto' src={flecha} alt="flechaLink" />
-                                </button>
-                            </FloatingElement>
+                            
+                            {preferenceId ?
+                                <Wallet 
+                                    initialization={
+                                        { preferenceId: preferenceId }
+                                    } 
+                                    customization={
+                                        { texts: 
+                                            {valueProp: 'smart_option'}
+                                        }
+                                    } 
+                                />
+                            :
+                                <>
+                                    <FloatingElement>
+                                        <button
+                                            type="submit"
+                                            className='flex font-monos md:text-base text-sm bg-gradient-to-r from-[#EEB4CB] via-[#FDF4F8] to-[#EEB4CB] w-fit px-5 shadow-md py-3 space-x-3 my-10'
+                                        >
+                                            <p className='text-[#564757] uppercase'>pagar</p>
+                                            <img className='w-3 h-4 my-auto' src={flecha} alt="flechaLink" />
+                                        </button>
+                                    </FloatingElement>
+                                </>
+                            }
+                            
                         </div>
                         
                     </form>

@@ -14,7 +14,6 @@ export default function Curso() {
 
   useEffect(()=>{
     setInfo(infoCursos[id])
-    console.log(info);
   },[id])
   return (
     <div>
